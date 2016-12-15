@@ -11,7 +11,11 @@ int input(){
     cin.getline(angka, 100);
     for(int kounter=0; angka[kounter]!='\0'; kounter++){
         if(angka[kounter]>='0' && angka[kounter]<='9'){
+            tes=false;
+        }
+        else{
             tes=true;
+            break;
         }
     }
     if(tes==false){
