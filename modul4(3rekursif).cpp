@@ -2,28 +2,35 @@
 #include <stdlib.h>
 using namespace std;
 
+int convert;
+int convert1;
 int input(){
-    char angka[100];
-    int convert;
+    char angka[100], angka1[100];
     bool tes=true;
     input1:
-    cout<<"Masukan Angka = ";
+    cout<<"Masukan Angka pertama= ";
     cin.getline(angka, 100);
+    cout<<"Masukan Angka kedua= ";
+    cin.getline(angka1, 100);
     for(int kounter=0; angka[kounter]!='\0'; kounter++){
         if(angka[kounter]>='0' && angka[kounter]<='9'){
-            tes=false;
+            tes=true;
+        }
+        else if(angka1[kounter]>='0' && angka1[kounter]<='9'){
+            tes=true;
         }
         else{
-            tes=true;
+            tes=false;
             break;
         }
     }
-    if(tes==false){
+    if(tes==true){
             convert=atoi(angka);
-            return convert;
+            convert1=atoi(angka1);
     }
     else{
         char ulang;
+        salah:
         cout<<"Input harus angka\n";
         cout<<"input Lagi [y/t]? \n";
         cin>>ulang;
@@ -37,43 +44,43 @@ int input(){
         return 0;
     default:
         cout<<"input salah";
+        goto salah;
         break;
     }
     }
 }
 
-int fakjum(int angka){
-    if (angka>1) return angka+fakjum(angka-1);
-    else if(angka<1) return 0;
-    else return 1;
+int tampil(int angka, int angka1){
+    if (angka1>1) {cout<<angka<<"+"; tampil(angka, angka1-1);}
+    else if(angka1<1) {return 0;}
+    else {cout<< angka;}
 }
 
 int fakkal(int angka){
-    if (angka>1) return angka*fakjum(angka-1);
+    if (angka>1) return angka*fakkal(angka-1);
     else if(angka<1) return 0;
     else return 1;
 }
 
-int tampilbil(int angka){
-    if(angka>=1){
-        cout<<angka<<" ";
-        angka=angka-tampilbil(angka-1);
+int kali(int angka, int angka1){
+    if(angka1>1 && angka>1){
+        return angka+kali(angka, angka1-1);
     }
     else if(angka<1) return 0;
-    else return 1;
+    else return angka;
 }
 
 int main()
 {
-    int angka;
-    angka=input();
-    cout<<"Faktorial Perkalian : ";
-    cout<<fakkal(angka);
+    input();
+    tampil(convert, convert1);
     cout<<endl;
-    cout<<"Faktorial Penjumlahan : ";
-    cout<<fakjum(angka);
+    cout<<"Hasil dari "<<convert<<"*"<<convert1<<" = "<<kali(convert, convert1);
     cout<<endl;
-    cout<<"Output Dari "<<angka<<" sampai 0 : ";
-    cout<<tampilbil(angka);
+    cout<<"Faktorial Perkalian "<<convert<<" : ";
+    cout<<fakkal(convert);
+    cout<<endl;
+    cout<<"Faktorial Perkalian "<<convert1<<" : ";
+    cout<<fakkal(convert1);
     cout<<endl;
 }
