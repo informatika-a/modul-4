@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1482155761 source:c:\users\ikky\documents\project database\modul 4(sin, cos tan)\main.cpp
+	<iostream>
+	<cmath>
+
+1482221090 source:c:\users\ikky\documents\c++\modul 4(sin, cos tan)\main.cpp
+	"sin_cos_tan.h"
+
+1482222615 c:\users\ikky\documents\c++\modul 4(sin, cos tan)\sin_cos_tan.h
+	<iostream>
+	<stdlib.h>
+	<cmath>
+	<string.h>
+
