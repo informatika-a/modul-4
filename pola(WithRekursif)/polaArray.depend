@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1482219972 source:e:\modul4\polaarray\main.cpp
+	"bagos.h"
+
+1482219994 e:\modul4\polaarray\bagos.h
+	<iostream>
+	<stdlib.h>
+
